@@ -1,0 +1,10 @@
+<h1>Name: {{student.name}}</h1>
+<h1>Last name: {{student.lastname}}</h1>
+<h3>Age: {{student.age}}</h3>
+<h3>Courses</h3>
+{% for course in student.course.all %}
+     <h4>{{ course.name }}</h4>
+{% endfor %}
+
+<br>
+<a href="{% url 'course_list' %}">Back to courses</a>

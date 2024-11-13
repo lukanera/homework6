@@ -1,0 +1,6 @@
+<form method="post">
+    Add student:<br>
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">submit</button>
+</form>

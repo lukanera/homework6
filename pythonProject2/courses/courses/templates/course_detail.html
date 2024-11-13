@@ -1,0 +1,27 @@
+<h1>{{ course.name }}</h1>
+<p>{{ course.description }}</p>
+<a href="{% url 'course_update' course.id %}">Edit</a>
+<a href="{% url 'course_delete' course.id %}">Delete</a>
+<a href="{% url 'course_list' %}">Back to list</a>
+<br>
+<br>
+<br>
+
+<h3> Students:</h3>
+{% for student in course.students.all %}
+    <a href="{% url 'student_detail' student.id %}">{{ student.name }}</a>
+    <a href="{% url 'student_update' student.id %}">Edit</a>
+    <a href="{% url 'student_delete' student.pk %}">Delete</a>
+    <br>
+{% endfor %}
+
+
+<br>
+<br>
+
+<form method="post">
+    Add student:<br>
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">submit</button>
+</form>
